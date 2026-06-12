@@ -1,9 +1,10 @@
 <?php
-require_once 'includes/header.php';
+require_once 'includes/session.php';
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
 }
+require_once 'includes/header.php';
 ?>
 
 <div class="container mt-5 mb-5 fade-in">

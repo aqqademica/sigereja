@@ -1,11 +1,11 @@
 <?php
-require_once 'includes/header.php';
-require_once 'config/database.php';
-
+require_once 'includes/session.php';
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
 }
+require_once 'includes/header.php';
+require_once 'config/database.php';
 
 // Fetch Sektor for the complete registration form
 $stmtSektor = $pdo->query("SELECT * FROM tblSektor ORDER BY nama_sektor ASC");
