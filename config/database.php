@@ -12,10 +12,10 @@ function load_env(string $path): void {
     foreach ($lines as $line) {
         $line = trim($line);
         if ($line === '' || $line[0] === '#') continue;
-        if (!str_contains($line, '=')) continue;
-        [$key, $value] = explode('=', $line, 2);
-        $key   = trim($key);
-        $value = trim($value);
+        if (strpos($line, '=') === false) continue;
+        $parts = explode('=', $line, 2);
+        $key   = trim($parts[0]);
+        $value = trim(trim($parts[1]), "\"'");
         if (!isset($_ENV[$key])) {
             $_ENV[$key] = $value;
             putenv("$key=$value");
@@ -49,6 +49,9 @@ try {
     // In production, do NOT expose the connection error to the browser.
     http_response_code(500);
     error_log('[SIGereja] Database connection failed: ' . $e->getMessage());
-    die('Koneksi database gagal. Silakan hubungi administrator.');
+    // Pad the error message to >512 bytes so Chrome doesn't hide it with a generic "500 Error" page.
+    $msg = "Koneksi database gagal. Silakan periksa kredensial database di file .env Anda atau hubungi administrator.<br><br>";
+    $msg .= str_repeat("<!-- padding to bypass browser generic error -->", 15);
+    die($msg);
 }
 ?>
