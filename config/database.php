@@ -54,4 +54,3 @@ try {
     $msg .= str_repeat("<!-- padding to bypass browser generic error -->", 15);
     die($msg);
 }
-?>

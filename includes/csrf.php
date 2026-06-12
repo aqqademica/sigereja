@@ -43,4 +43,3 @@ function csrf_verify(string $redirect = ''): void {
         die('403 Forbidden — CSRF token tidak valid.');
     }
 }
-?>
