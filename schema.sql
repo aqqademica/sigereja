@@ -1,6 +1,6 @@
 -- Create the database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS sigereja;
-USE sigereja;
+-- CREATE DATABASE IF NOT EXISTS sigereja;
+-- USE sigereja;
 
 -- 1. Manajemen Akses & Autentikasi
 CREATE TABLE `users` (
