@@ -13,11 +13,42 @@
 // Define your secure token here
 define('SECRET_TOKEN', '9a8juK5r7apoAka5ghau78f7b2c9d');
 
-// Verify the token
-$provided_token = $_GET['token'] ?? '';
-if ($provided_token !== SECRET_TOKEN) {
+// Timing-safe comparison helper
+function safe_compare(string $a, string $b): bool {
+    if (function_exists('hash_equals')) {
+        return hash_equals($a, $b);
+    }
+    return $a === $b;
+}
+
+$authenticated = false;
+
+// 1. Verify via X-Hub-Signature-256 header (when using GitHub webhook Secret field)
+$hub_signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
+if (!empty($hub_signature)) {
+    $raw_post = file_get_contents('php://input');
+    $parts = explode('=', $hub_signature, 2);
+    $algo = $parts[0] ?? '';
+    $hash = $parts[1] ?? '';
+    if ($algo === 'sha256' && !empty($hash)) {
+        $payload_hash = hash_hmac('sha256', $raw_post, SECRET_TOKEN);
+        if (safe_compare($payload_hash, $hash)) {
+            $authenticated = true;
+        }
+    }
+}
+
+// 2. Verify via URL query parameter (fallback)
+if (!$authenticated) {
+    $provided_token = $_GET['token'] ?? '';
+    if (!empty($provided_token) && safe_compare(SECRET_TOKEN, $provided_token)) {
+        $authenticated = true;
+    }
+}
+
+if (!$authenticated) {
     header('HTTP/1.1 403 Forbidden');
-    die('Access Denied. Invalid token.');
+    die('Access Denied. Invalid token or signature.');
 }
 
 // Ensure the request is a POST request (Webhooks usually are)
