@@ -11,7 +11,7 @@
  */
 
 // Define your secure token here
-define('SECRET_TOKEN', '9a8juK?~5-r7apoAka-5ghau78f7b2c9d');
+define('SECRET_TOKEN', '9a8juK5r7apoAka5ghau78f7b2c9d');
 
 // Verify the token
 $provided_token = $_GET['token'] ?? '';
