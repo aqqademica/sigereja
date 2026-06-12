@@ -1,0 +1,14 @@
+# Configuration files
+.env
+
+# Dependencies
+vendor/
+node_modules/
+
+# Logs
+*.log
+error_log
+
+# OS generated files
+.DS_Store
+Thumbs.db

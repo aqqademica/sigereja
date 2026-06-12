@@ -1,0 +1,395 @@
+/* ============================================================
+   SIGereja - Jemaat Clean Style Sheet
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #818cf8;
+  --accent: #d97706;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --transition: all 0.2s ease-in-out;
+}
+
+/* ---- Base Styles ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+
+/* ---- Layout wrap ---- */
+.navbar,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Modern Solid Cards ---- */
+.glass-card {
+  background: #ffffff !important;
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ---- Hero Text ---- */
+.hero-title {
+  color: var(--text-main) !important;
+  font-weight: 800;
+  text-shadow: none !important;
+}
+
+.hero-subtitle {
+  color: var(--text-muted) !important;
+  font-weight: 400;
+}
+
+/* ---- Global Header Navbar ---- */
+.navbar-custom {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--primary) !important;
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand span {
+  color: var(--accent);
+}
+
+.navbar-custom .nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 550;
+  transition: var(--transition);
+}
+
+.navbar-custom .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.navbar-custom .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* ---- High-Legibility Buttons ---- */
+.btn-primary-custom {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  padding: 0.65rem 1.6rem !important;
+  font-weight: 600 !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15) !important;
+}
+
+.btn-primary-custom:hover {
+  background: var(--primary-dark) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.25) !important;
+}
+
+.btn-accent-custom {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  padding: 0.65rem 1.6rem !important;
+  font-weight: 600 !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.15) !important;
+}
+
+.btn-accent-custom:hover {
+  background: #b45309 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.25) !important;
+}
+
+/* ---- Form Controls ---- */
+.form-control,
+.form-select {
+  border-radius: var(--radius-md);
+  border: 1.5px solid #cbd5e1 !important;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-main) !important;
+  background-color: #ffffff !important;
+  transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(99, 91, 230, 0.15) !important;
+  outline: none;
+  background-color: #ffffff !important;
+}
+
+/* Placeholders */
+.form-control::placeholder,
+.form-control-custom::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+/* Input group icons */
+.input-group-text {
+  background-color: #f1f5f9 !important;
+  color: var(--text-muted) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-right: none !important;
+  border-top-left-radius: var(--radius-md) !important;
+  border-bottom-left-radius: var(--radius-md) !important;
+  transition: var(--transition);
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+/* Select dropdown options */
+.form-select option {
+  background-color: #ffffff !important;
+  color: var(--text-main) !important;
+}
+
+/* ---- Badges ---- */
+.badge-pending {
+  background: #f59e0b;
+  color: #ffffff !important;
+}
+
+.badge-approved {
+  background: #3b82f6;
+  color: #ffffff !important;
+}
+
+.badge-selesai {
+  background: #10b981;
+  color: #ffffff !important;
+}
+
+.badge-ditolak {
+  background: #ef4444;
+  color: #ffffff !important;
+}
+
+/* ---- Notification dropdown ---- */
+.notif-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--danger);
+  color: #ffffff !important;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  animation: pulse-badge 1.5s infinite;
+}
+
+@keyframes pulse-badge {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.notif-dropdown {
+  width: 340px;
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0;
+  background: #ffffff !important;
+  box-shadow: 0 10px 40px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.notif-item {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.notif-item:hover {
+  background: #f8fafc;
+}
+
+.notif-item.unread {
+  border-left: 3px solid var(--accent);
+}
+
+.notif-item .notif-title {
+  color: var(--text-main) !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.notif-item .notif-msg {
+  color: var(--text-muted) !important;
+  font-size: 0.80rem;
+}
+
+.notif-item .notif-time {
+  color: #64748b !important;
+  font-size: 0.72rem;
+}
+
+/* ---- Animations ---- */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out both;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delay */
+.card-delay-1 {
+  animation-delay: 0.05s;
+}
+
+.card-delay-2 {
+  animation-delay: 0.1s;
+}
+
+.card-delay-3 {
+  animation-delay: 0.15s;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: #ffffff !important;
+  color: var(--text-muted) !important;
+  font-size: 0.85rem;
+  border-top: 1px solid #e2e8f0 !important;
+  padding: 1.5rem 0;
+}
+
+/* ---- Global Inline Color Overrides ---- */
+/* Overrides standard inline overrides from template files to guarantee solid legibility */
+.glass-card h1,
+.glass-card h2,
+.glass-card h3,
+.glass-card h4,
+.glass-card h5,
+.glass-card h6 {
+  color: var(--text-main) !important;
+}
+
+.glass-card p,
+.glass-card .small,
+.glass-card span:not(.badge) {
+  color: var(--text-muted) !important;
+}
+
+.glass-card label {
+  color: var(--text-main) !important;
+}
+
+/* Dynamic fix for any inline colors that are set to white or semi-white inside cards */
+.glass-card [style*="color:#fff"],
+.glass-card [style*="color:#ffffff"],
+.glass-card [style*="color: #fff"],
+.glass-card [style*="color: #ffffff"],
+.glass-card [style*="color:rgb(255,255,255)"],
+.glass-card [style*="color: rgb(255,255,255)"],
+.glass-card [style*="color:rgba(255,255,255"],
+.glass-card [style*="color: rgba(255,255,255"] {
+  color: var(--text-main) !important;
+}
+
+/* Custom button styles */
+.form-control-custom {
+  background-color: #ffffff !important;
+  color: var(--text-main) !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}

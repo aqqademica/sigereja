@@ -1,0 +1,29 @@
+{
+  "name": "SIGereja",
+  "short_name": "SIGereja",
+  "description": "Sistem Informasi Gereja - Portal Digital Jemaat",
+  "start_url": "/SIGereja/index.php",
+  "display": "standalone",
+  "background_color": "#1e1b4b",
+  "theme_color": "#1e1b4b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/SIGereja/assets/images/cross_jesus.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/SIGereja/assets/images/church_bg.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "social",
+    "lifestyle"
+  ],
+  "lang": "id"
+}

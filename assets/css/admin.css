@@ -1,0 +1,498 @@
+/* ============================================================
+   SIGereja - AdminLTE-Style Admin Dashboard CSS
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* AdminLTE inspired palette */
+  --alt-primary: #4f46e5;
+  --alt-primary-dk: #3730a3;
+  --alt-accent: #f59e0b;
+  --alt-success: #10b981;
+  --alt-danger: #ef4444;
+  --alt-warning: #f59e0b;
+  --alt-info: #3b82f6;
+  --alt-sidebar-bg: #1e1b4b;
+  --alt-sidebar-txt: rgba(255, 255, 255, 0.85);
+  --alt-sidebar-act: rgba(255, 255, 255, 0.12);
+  --alt-body-bg: #f1f3f9;
+  --alt-card-bg: #ffffff;
+  --alt-border: #e5e7f0;
+  --alt-text: #1e2432;
+  --alt-muted: #64748b;
+  --radius: 10px;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --transition: all 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--alt-body-bg);
+  color: var(--alt-text);
+  font-size: 0.93rem;
+}
+
+/* ===================== LAYOUT ===================== */
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===================== SIDEBAR ===================== */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: var(--alt-sidebar-bg);
+  color: var(--alt-sidebar-txt);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-brand {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  text-decoration: none;
+}
+
+.sidebar-brand .brand-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--alt-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.sidebar-brand .brand-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-brand .brand-sub {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1px;
+}
+
+.nav-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 1.25rem 1.5rem 0.4rem;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  flex: 1;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.875rem;
+  border-radius: 8px;
+  color: var(--alt-sidebar-txt);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: var(--transition);
+  margin-bottom: 2px;
+}
+
+.sidebar-nav li a:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+}
+
+.sidebar-nav li a.active {
+  background: var(--alt-primary);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.40);
+}
+
+.sidebar-nav li a .nav-icon {
+  width: 18px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.sidebar-nav li a.active .nav-icon {
+  opacity: 1;
+}
+
+.sidebar-footer {
+  padding: 1rem 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.875rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.sidebar-footer a:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+}
+
+/* ===================== MAIN CONTENT ===================== */
+.main-content {
+  margin-left: 260px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===================== TOPBAR ===================== */
+.topbar {
+  background: #fff;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--alt-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  gap: 1rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--alt-text);
+}
+
+.topbar-breadcrumb {
+  font-size: 0.78rem;
+  color: var(--alt-muted);
+}
+
+/* ===================== CONTENT AREA ===================== */
+.content-area {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* ===================== CARDS ===================== */
+.card-admin {
+  background: var(--alt-card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--alt-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card-admin .card-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--alt-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.card-admin .card-header h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-admin .card-body {
+  padding: 1.25rem;
+}
+
+/* Legacy support */
+.glass-card-admin {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--alt-border);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ===================== STAT WIDGETS ===================== */
+.stat-widget {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--alt-border);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.stat-widget:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-icon.blue {
+  background: hsl(220, 80%, 94%);
+  color: hsl(220, 80%, 50%);
+}
+
+.stat-icon.green {
+  background: hsl(151, 60%, 90%);
+  color: hsl(151, 60%, 36%);
+}
+
+.stat-icon.orange {
+  background: hsl(35, 90%, 92%);
+  color: hsl(35, 90%, 45%);
+}
+
+.stat-icon.purple {
+  background: hsl(246, 80%, 92%);
+  color: hsl(246, 80%, 50%);
+}
+
+.stat-icon.red {
+  background: hsl(0, 72%, 92%);
+  color: hsl(0, 72%, 50%);
+}
+
+.stat-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--alt-text);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--alt-muted);
+  margin-top: 2px;
+}
+
+/* ===================== TABLES ===================== */
+.table {
+  font-size: 0.875rem;
+}
+
+.table thead th {
+  background: #f8faff;
+  font-weight: 600;
+  font-size: 0.80rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--alt-muted);
+  border-bottom: 2px solid var(--alt-border);
+}
+
+.table tbody tr:hover {
+  background: #f8faff;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--alt-primary), var(--alt-primary-dk));
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.30);
+  transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+}
+
+/* ===================== NOTIFICATION (ADMIN) ===================== */
+.notif-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background: var(--alt-danger);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.notif-dropdown-admin {
+  width: 320px;
+  border-radius: var(--radius);
+  border: 1px solid var(--alt-border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.notif-dropdown-admin .notif-header {
+  padding: 0.75rem 1rem;
+  background: var(--alt-sidebar-bg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notif-dropdown-admin .notif-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--alt-border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.notif-dropdown-admin .notif-item:hover {
+  background: #f8faff;
+}
+
+.notif-dropdown-admin .notif-item.unread {
+  border-left: 3px solid var(--alt-primary);
+}
+
+.notif-dropdown-admin .notif-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--alt-text);
+}
+
+.notif-dropdown-admin .notif-msg {
+  font-size: 0.78rem;
+  color: var(--alt-muted);
+  margin-top: 2px;
+}
+
+.notif-dropdown-admin .notif-time {
+  font-size: 0.70rem;
+  color: #adb5bd;
+  margin-top: 2px;
+}
+
+/* ===================== ANIMATIONS ===================== */
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== MODAL Z-INDEX FIX ===================== */
+/* Ensure modals always render above fixed sidebar (z-index: 100) and topbar (z-index: 90) */
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+
+/* Sidebar and topbar drop behind the backdrop when modal is open */
+body.modal-open .sidebar {
+  z-index: 1040 !important;
+}
+
+body.modal-open .topbar {
+  z-index: 1040 !important;
+}
+
+/* Ensure the modal and all its children are always fully clickable */
+.modal,
+.modal-dialog,
+.modal-content,
+.modal-body,
+.modal-footer,
+.modal-header {
+  pointer-events: auto !important;
+}
+
+/* Move modals to body level so they escape any stacking-context from table/card wrappers */
+/* (Applied via JS in admin_footer — see modal relocation script) */

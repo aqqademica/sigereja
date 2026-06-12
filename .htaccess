@@ -1,0 +1,24 @@
+# ----------------------------------------------------------------------
+# Security Shield: Prevent unauthorized access to sensitive files
+# ----------------------------------------------------------------------
+
+# 1. Disable Directory Browsing
+# If an index.php is missing, this stops people from seeing a list of your files.
+Options -Indexes
+
+# 2. Block access to ALL hidden files and directories (starts with a dot)
+# This protects .env, .gitignore, .git folder, etc.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# 3. Explicitly block .env just to be absolutely certain
+<FilesMatch "^\.env(.*)$">
+    Require all denied
+</FilesMatch>
+
+# 4. Block access to database structures, backups, and logs
+# This stops people from downloading your schema.sql or error logs
+<FilesMatch "\.(sql|bak|log|md|sqlite)$">
+    Require all denied
+</FilesMatch>
