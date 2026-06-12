@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    # IMPORTANT: Change "your_cpanel_username" to your actual cPanel username
+    - export DEPLOYPATH=/home/gere1931/public_html/
+    
+    # Copy all visible files and directories
+    - /bin/cp -R * $DEPLOYPATH
+    
+    # Copy the critical hidden Apache shield file
+    - /bin/cp .htaccess $DEPLOYPATH
+    
+    # (Optional) If you ever add Composer, you could run it here:
+    # - /usr/local/bin/composer install --working-dir=$DEPLOYPATH --no-dev
