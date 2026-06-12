@@ -45,7 +45,8 @@ function hitung_notifikasi(PDO $pdo, int $user_id): int {
  * Get recent notifications for a user (for dropdown).
  */
 function ambil_notifikasi(PDO $pdo, int $user_id, int $limit = 10): array {
-    $stmt = $pdo->prepare("SELECT * FROM tblNotifikasi WHERE user_id = ? ORDER BY created_at DESC LIMIT ?");
-    $stmt->execute([$user_id, $limit]);
+    $limit = (int)$limit;
+    $stmt = $pdo->prepare("SELECT * FROM tblNotifikasi WHERE user_id = ? ORDER BY created_at DESC LIMIT $limit");
+    $stmt->execute([$user_id]);
     return $stmt->fetchAll();
 }
